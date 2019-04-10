@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		Log.e("Test","Test");
-		Log.e("Test","Test2");
+		Log.e("Test","Test23");
 		Fabric.with(this, new Crashlytics());
 	}
 }
