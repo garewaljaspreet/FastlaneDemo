@@ -35,18 +35,14 @@ platform :android do
     # You can also use other beta testing services here
   end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
-
   desc "Generate release notes"
     private_lane :release_notes do
-      get_version_number
-      changelog = changelog_from_git_commits
-      version_number = lane_context[SharedValues::VERSION_NUMBER]
-      "Release notes #{version_number} Automatic build (Last 5 PR):\n#{changelog}"
+     changelog_from_git_commits(
+       pretty: "- (%ae) %s",# Optional, lets you provide a custom format to apply to each commit when generating the changelog text
+       date_format: "short",# Optional, lets you provide an additional date format to dates within the pretty-formatted string
+       match_lightweight_tag: false,  # Optional, lets you ignore lightweight (non-annotated) tags when searching for the last tag
+       merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
+     )
     end
 
 end
