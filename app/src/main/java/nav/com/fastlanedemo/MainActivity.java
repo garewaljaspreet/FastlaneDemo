@@ -2,6 +2,7 @@ package nav.com.fastlanedemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-
+		Log.e("Test","Test");
 		Fabric.with(this, new Crashlytics());
 	}
 }
