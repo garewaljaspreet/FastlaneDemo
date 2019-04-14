@@ -5,17 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.005175">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.004934">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: gradle" time="7.226429">
+      <testcase classname="fastlane.lanes" name="1: gradle" time="23.293329">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: crashlytics" time="55.854886">
+      <testcase classname="fastlane.lanes" name="2: Switch to android release_notes lane" time="0.001274">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: changelog_from_git_commits" time="0.066195">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: crashlytics" time="2.847611">
         
       </testcase>
     

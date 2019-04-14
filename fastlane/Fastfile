@@ -24,16 +24,23 @@ platform :android do
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
     gradle(task: "clean assembleRelease")
-    crashlytics
+
+     crashlytics(
+        api_token: 'bac2dc5f0a414db024aeea855023f3e1a1b9039a',
+        build_secret: '6696555242c64c78acb71242db8e3058eb25924ee3600f52eac4e01af271b987',
+        notes: release_notes
+      )
   
     # sh "your_script.sh"
     # You can also use other beta testing services here
   end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+  desc "Generate release notes"
+    private_lane :release_notes do
+     changelog_from_git_commits(
+       quiet: false,
+       merge_commit_filtering: "only_include_merges" # Optional, lets you filter out merge commits
+     )
+    end
 
 end
